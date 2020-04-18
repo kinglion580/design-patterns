@@ -33,9 +33,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="calculator\Operation.cs" />
+    <Compile Include="2pos\pos.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="calculator\" />
+    <Folder Include="2pos\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
