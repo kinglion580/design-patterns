@@ -30,9 +30,22 @@ namespace pos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CashSuper csuper = CashFactory.createCashAccept(comboBox1.SelectedItem.ToString());
+            CashContext cc = null;
+            switch (comboBox1.SelectedItem.ToString())
+            {
+                case "正常收费":
+                    cc = new CashContext(new CashNormal());
+                    break;
+                case "满300减100":
+                    cc = new CashContext(new CashReturn("300", "100"));
+                    break;
+                case "打8折":
+                    cc = new CashContext(new CashRebate("8"));
+                    break;
+            }
+
             double totalPrices = 0d;
-            totalPrices = csuper.acceptCash(Convert.ToDouble(textBox1.Text) * Convert.ToDouble(textBox2.Text));
+            totalPrices = cc.GetResult(Convert.ToDouble(textBox1.Text) * Convert.ToDouble(textBox2.Text));
             total = total + totalPrices;
             listBox1.Items.Add("单价: " + textBox1.Text + "数量：" + textBox2.Text + " " + comboBox1.SelectedItem + "合计：" + totalPrices.ToString());
             label5.Text = total.ToString();
