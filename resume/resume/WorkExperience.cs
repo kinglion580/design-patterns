@@ -4,7 +4,7 @@ using System.Text;
 
 namespace resume
 {
-    class WorkExperience
+    class WorkExperience : ICloneable
     {
         private string workDate;
         public string WorkDate
@@ -17,6 +17,11 @@ namespace resume
         {
             get { return company;  }
             set { company = value;  }
+        }
+
+        public object Clone()
+        {
+            return (Object)this.MemberwiseClone();
         }
     }
 }

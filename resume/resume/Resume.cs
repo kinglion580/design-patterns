@@ -18,6 +18,11 @@ namespace resume
             work = new WorkExperience();
         }
 
+        private Resume(WorkExperience work)
+        {
+            this.work = (WorkExperience)work.Clone();
+        }
+
         public void SetPersonalInfo(string sex, string age)
         {
             this.sex = sex;
@@ -38,7 +43,11 @@ namespace resume
 
         public object Clone()
         {
-            return (Object)this.MemberwiseClone();
+            Resume obj = new Resume(this.work);
+            obj.name = this.name;
+            obj.sex = this.sex;
+            obj.age = this.age;
+            return obj;
         }
     }
 }
