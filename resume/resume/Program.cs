@@ -10,13 +10,11 @@ namespace resume
             a.SetPersonalInfo("男", "29");
             a.SetWorkExperience("1998-2000", "xx公司");
 
-            Resume b = new Resume("大鸟");
-            b.SetPersonalInfo("男", "29");
-            b.SetWorkExperience("1998-2000", "xx公司");
+            Resume b = (Resume)a.Clone();
+            b.SetWorkExperience("1998-2000", "yy公司");
 
-            Resume c = new Resume("大鸟");
-            c.SetPersonalInfo("男", "29");
-            c.SetWorkExperience("1998-2000", "xx公司");
+            Resume c = (Resume)a.Clone();
+            c.SetPersonalInfo("女", "24");
 
             a.Display();
             b.Display();
