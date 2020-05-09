@@ -9,60 +9,72 @@ namespace template
         public void TestQuestion1 ()
         {
             Console.WriteLine("Question 1");
+            Console.WriteLine("answer: " + Answer1());
+        }
+
+        protected virtual string Answer1()
+        {
+            return "";
         }
 
         public void TestQuestion2 ()
         {
             Console.WriteLine("Question 2");
+            Console.WriteLine("answer: " + Answer2());
+        }
+
+        protected virtual string Answer2()
+        {
+            return "";
         }
 
         public void TestQuestion3 ()
         {
             Console.WriteLine("Question 3");
+            Console.WriteLine("answer: " + Answer3());
+        }
+
+        protected virtual string Answer3()
+        {
+            return "";
         }
     }
 
     
     class TestPaperA : TestPaper
     {
-        public new void TestQuestion1 ()
+        protected override string Answer1()
         {
-            base.TestQuestion1();
-            Console.WriteLine("answer: b");
+            return "b";
         }
 
-        public new void TestQuestion2()
+        protected override string Answer2()
         {
-            base.TestQuestion2();
-            Console.WriteLine("answer: c");
+            return "c";
         }
 
-        public new void TestQuestion3()
+        protected override string Answer3()
         {
-            base.TestQuestion3();
-            Console.WriteLine("answer: d");
+            return "d";
         }
     }
 
 
     class TestPaperB : TestPaper
     {
-        public new void TestQuestion1()
+        protected override string Answer1()
         {
-            base.TestQuestion1();
-            Console.WriteLine("answer: a");
+            return "a";
         }
 
-        public new void TestQuestion2()
+        protected override string Answer2()
         {
-            base.TestQuestion2();
-            Console.WriteLine("answer: b");
+            return "b";
         }
 
-        public new void TestQuestion3()
+        protected override string Answer3()
         {
-            base.TestQuestion3();
-            Console.WriteLine("answer: c");
+            return "c";
         }
     }
 }
